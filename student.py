@@ -26,14 +26,15 @@ class Student:
     def __str__(self):
         return f"{self.name} from {self.house}"
 
-def main():
-    student = get_student()
-    print(student)
+    @classmethod
+    def get(cls):
+        name = input("Name: ")
+        house = input("House: ")
+        return cls(name, house)
 
-def get_student():
-    name = input("Name: ")
-    house = input("House: ")
-    return Student(name, house)
+def main():
+    student = Student.get()
+    print(student)
 
 if __name__ == '__main__':
     main()
